@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/index.css"></link>
+</head>
+<body>
+    <div class="title quotation">
+        <hr> <p>QUOTATION</p> <hr>
+    </div>
+    <h1>BK Enterprise</h1>
+    <div class="title cusomerDetails">
+        <hr> <p>CUSTOMER DETAILS</p> <hr>
+        <div>
+            <pre class="spanCol">Party    : <em>MR. X</em></pre>
+            <pre>No.  : <em>A-9595</em></pre>
+        </div>
+        <div>
+            <pre class="spanCol">Address  : <em>Mumbai, MH - 361XXX</em></pre>
+            <pre>Date : <em>12-04-1978</em></pre>
+        </div>
+        <div>
+            <pre class="spanCol">Mobile   : <em>+91 XXX-XXXX-XXX</em></pre>
+        </div>
+        <div>
+            <pre>Refrence : <em>MR. Y</em></pre>
+            <pre>Mobile   : <em>+91 XXX-XXXX-XXX</em></pre>
+        </div>
+        <hr>
+    </div>
+
+    <div class="summary">
+        <table>
+            <thead>
+                <tr>
+                    <th class="summaryCol1">Sr.</th>
+                    <th class="summaryCol2">Area</th>
+                    <th class="summaryCol3">Net Amt.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="summaryCol1">1</td>
+                    <td class="summaryCol2"></td>
+                    <td class="summaryCol3">83,282.50</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th class="summaryCol1"></th>
+                    <th class="summaryCol2">Total</th>
+                    <th class="summaryCol3">83,282.50</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="items">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr.</th>
+                    <th>SKU Code</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>MRP</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Net Amt.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (locals.items) { %>
+                    <% for(var i = 0; i < 20; i++) { %>
+                        <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= items[0].code %></td>
+                            <td><img class="" src="<%= items[0].image %>"></td>
+                            <td><%= items[0].name %></td>
+                            <td class="numericCol"><%= items[0].mrp %></td>
+                            <td class="numericCol"><%= items[0].qty %></td>
+                            <td class="numericCol"><%= items[0].mrp * items[0].qty %></td>
+                            <td class="numericCol"><%= items[0].mrp * items[0].qty * 0.8 %></td>
+                        </tr>
+                <% } } %>
+            </tbody>
+        </table>
+    </div>
+    <button onclick="printAsPdf('button')">print</button>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="script/pdfPrinter.js"></script>
+  </body>
+</html>
